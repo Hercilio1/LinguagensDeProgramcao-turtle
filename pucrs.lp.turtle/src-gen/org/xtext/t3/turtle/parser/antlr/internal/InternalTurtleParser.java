@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalTurtleParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'fd'", "'rt'", "'repeat'", "'['", "']'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'fd'", "'forwad'", "'rt'", "'rotate'", "'repeat'", "'['", "']'"
     };
     public static final int RULE_ID=5;
     public static final int RULE_WS=9;
@@ -29,6 +29,8 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
     public static final int RULE_ANY_OTHER=10;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__15=15;
+    public static final int T__16=16;
+    public static final int T__17=17;
     public static final int RULE_INT=4;
     public static final int T__11=11;
     public static final int RULE_ML_COMMENT=7;
@@ -133,7 +135,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>=11 && LA1_0<=13)) ) {
+                if ( ((LA1_0>=11 && LA1_0<=15)) ) {
                     alt1=1;
                 }
 
@@ -254,16 +256,18 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
             int alt2=3;
             switch ( input.LA(1) ) {
             case 11:
+            case 12:
                 {
                 alt2=1;
                 }
                 break;
-            case 12:
+            case 13:
+            case 14:
                 {
                 alt2=2;
                 }
                 break;
-            case 13:
+            case 15:
                 {
                 alt2=3;
                 }
@@ -389,36 +393,73 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleForward"
-    // InternalTurtle.g:152:1: ruleForward returns [EObject current=null] : (otherlv_0= 'fd' ( (lv_value_1_0= RULE_INT ) ) ) ;
+    // InternalTurtle.g:152:1: ruleForward returns [EObject current=null] : ( (otherlv_0= 'fd' | otherlv_1= 'forwad' ) ( (lv_value_2_0= RULE_INT ) ) ) ;
     public final EObject ruleForward() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_value_1_0=null;
+        Token otherlv_1=null;
+        Token lv_value_2_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalTurtle.g:158:2: ( (otherlv_0= 'fd' ( (lv_value_1_0= RULE_INT ) ) ) )
-            // InternalTurtle.g:159:2: (otherlv_0= 'fd' ( (lv_value_1_0= RULE_INT ) ) )
+            // InternalTurtle.g:158:2: ( ( (otherlv_0= 'fd' | otherlv_1= 'forwad' ) ( (lv_value_2_0= RULE_INT ) ) ) )
+            // InternalTurtle.g:159:2: ( (otherlv_0= 'fd' | otherlv_1= 'forwad' ) ( (lv_value_2_0= RULE_INT ) ) )
             {
-            // InternalTurtle.g:159:2: (otherlv_0= 'fd' ( (lv_value_1_0= RULE_INT ) ) )
-            // InternalTurtle.g:160:3: otherlv_0= 'fd' ( (lv_value_1_0= RULE_INT ) )
+            // InternalTurtle.g:159:2: ( (otherlv_0= 'fd' | otherlv_1= 'forwad' ) ( (lv_value_2_0= RULE_INT ) ) )
+            // InternalTurtle.g:160:3: (otherlv_0= 'fd' | otherlv_1= 'forwad' ) ( (lv_value_2_0= RULE_INT ) )
             {
-            otherlv_0=(Token)match(input,11,FOLLOW_4); 
+            // InternalTurtle.g:160:3: (otherlv_0= 'fd' | otherlv_1= 'forwad' )
+            int alt3=2;
+            int LA3_0 = input.LA(1);
 
-            			newLeafNode(otherlv_0, grammarAccess.getForwardAccess().getFdKeyword_0());
-            		
-            // InternalTurtle.g:164:3: ( (lv_value_1_0= RULE_INT ) )
-            // InternalTurtle.g:165:4: (lv_value_1_0= RULE_INT )
-            {
-            // InternalTurtle.g:165:4: (lv_value_1_0= RULE_INT )
-            // InternalTurtle.g:166:5: lv_value_1_0= RULE_INT
-            {
-            lv_value_1_0=(Token)match(input,RULE_INT,FOLLOW_2); 
+            if ( (LA3_0==11) ) {
+                alt3=1;
+            }
+            else if ( (LA3_0==12) ) {
+                alt3=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 3, 0, input);
 
-            					newLeafNode(lv_value_1_0, grammarAccess.getForwardAccess().getValueINTTerminalRuleCall_1_0());
+                throw nvae;
+            }
+            switch (alt3) {
+                case 1 :
+                    // InternalTurtle.g:161:4: otherlv_0= 'fd'
+                    {
+                    otherlv_0=(Token)match(input,11,FOLLOW_4); 
+
+                    				newLeafNode(otherlv_0, grammarAccess.getForwardAccess().getFdKeyword_0_0());
+                    			
+
+                    }
+                    break;
+                case 2 :
+                    // InternalTurtle.g:166:4: otherlv_1= 'forwad'
+                    {
+                    otherlv_1=(Token)match(input,12,FOLLOW_4); 
+
+                    				newLeafNode(otherlv_1, grammarAccess.getForwardAccess().getForwadKeyword_0_1());
+                    			
+
+                    }
+                    break;
+
+            }
+
+            // InternalTurtle.g:171:3: ( (lv_value_2_0= RULE_INT ) )
+            // InternalTurtle.g:172:4: (lv_value_2_0= RULE_INT )
+            {
+            // InternalTurtle.g:172:4: (lv_value_2_0= RULE_INT )
+            // InternalTurtle.g:173:5: lv_value_2_0= RULE_INT
+            {
+            lv_value_2_0=(Token)match(input,RULE_INT,FOLLOW_2); 
+
+            					newLeafNode(lv_value_2_0, grammarAccess.getForwardAccess().getValueINTTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -427,7 +468,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
             					setWithLastConsumed(
             						current,
             						"value",
-            						lv_value_1_0,
+            						lv_value_2_0,
             						"org.eclipse.xtext.common.Terminals.INT");
             				
 
@@ -459,7 +500,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRotate"
-    // InternalTurtle.g:186:1: entryRuleRotate returns [EObject current=null] : iv_ruleRotate= ruleRotate EOF ;
+    // InternalTurtle.g:193:1: entryRuleRotate returns [EObject current=null] : iv_ruleRotate= ruleRotate EOF ;
     public final EObject entryRuleRotate() throws RecognitionException {
         EObject current = null;
 
@@ -467,8 +508,8 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalTurtle.g:186:47: (iv_ruleRotate= ruleRotate EOF )
-            // InternalTurtle.g:187:2: iv_ruleRotate= ruleRotate EOF
+            // InternalTurtle.g:193:47: (iv_ruleRotate= ruleRotate EOF )
+            // InternalTurtle.g:194:2: iv_ruleRotate= ruleRotate EOF
             {
              newCompositeNode(grammarAccess.getRotateRule()); 
             pushFollow(FOLLOW_1);
@@ -495,36 +536,73 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRotate"
-    // InternalTurtle.g:193:1: ruleRotate returns [EObject current=null] : (otherlv_0= 'rt' ( (lv_value_1_0= RULE_INT ) ) ) ;
+    // InternalTurtle.g:200:1: ruleRotate returns [EObject current=null] : ( (otherlv_0= 'rt' | otherlv_1= 'rotate' ) ( (lv_value_2_0= RULE_INT ) ) ) ;
     public final EObject ruleRotate() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_value_1_0=null;
+        Token otherlv_1=null;
+        Token lv_value_2_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalTurtle.g:199:2: ( (otherlv_0= 'rt' ( (lv_value_1_0= RULE_INT ) ) ) )
-            // InternalTurtle.g:200:2: (otherlv_0= 'rt' ( (lv_value_1_0= RULE_INT ) ) )
+            // InternalTurtle.g:206:2: ( ( (otherlv_0= 'rt' | otherlv_1= 'rotate' ) ( (lv_value_2_0= RULE_INT ) ) ) )
+            // InternalTurtle.g:207:2: ( (otherlv_0= 'rt' | otherlv_1= 'rotate' ) ( (lv_value_2_0= RULE_INT ) ) )
             {
-            // InternalTurtle.g:200:2: (otherlv_0= 'rt' ( (lv_value_1_0= RULE_INT ) ) )
-            // InternalTurtle.g:201:3: otherlv_0= 'rt' ( (lv_value_1_0= RULE_INT ) )
+            // InternalTurtle.g:207:2: ( (otherlv_0= 'rt' | otherlv_1= 'rotate' ) ( (lv_value_2_0= RULE_INT ) ) )
+            // InternalTurtle.g:208:3: (otherlv_0= 'rt' | otherlv_1= 'rotate' ) ( (lv_value_2_0= RULE_INT ) )
             {
-            otherlv_0=(Token)match(input,12,FOLLOW_4); 
+            // InternalTurtle.g:208:3: (otherlv_0= 'rt' | otherlv_1= 'rotate' )
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            			newLeafNode(otherlv_0, grammarAccess.getRotateAccess().getRtKeyword_0());
-            		
-            // InternalTurtle.g:205:3: ( (lv_value_1_0= RULE_INT ) )
-            // InternalTurtle.g:206:4: (lv_value_1_0= RULE_INT )
-            {
-            // InternalTurtle.g:206:4: (lv_value_1_0= RULE_INT )
-            // InternalTurtle.g:207:5: lv_value_1_0= RULE_INT
-            {
-            lv_value_1_0=(Token)match(input,RULE_INT,FOLLOW_2); 
+            if ( (LA4_0==13) ) {
+                alt4=1;
+            }
+            else if ( (LA4_0==14) ) {
+                alt4=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 4, 0, input);
 
-            					newLeafNode(lv_value_1_0, grammarAccess.getRotateAccess().getValueINTTerminalRuleCall_1_0());
+                throw nvae;
+            }
+            switch (alt4) {
+                case 1 :
+                    // InternalTurtle.g:209:4: otherlv_0= 'rt'
+                    {
+                    otherlv_0=(Token)match(input,13,FOLLOW_4); 
+
+                    				newLeafNode(otherlv_0, grammarAccess.getRotateAccess().getRtKeyword_0_0());
+                    			
+
+                    }
+                    break;
+                case 2 :
+                    // InternalTurtle.g:214:4: otherlv_1= 'rotate'
+                    {
+                    otherlv_1=(Token)match(input,14,FOLLOW_4); 
+
+                    				newLeafNode(otherlv_1, grammarAccess.getRotateAccess().getRotateKeyword_0_1());
+                    			
+
+                    }
+                    break;
+
+            }
+
+            // InternalTurtle.g:219:3: ( (lv_value_2_0= RULE_INT ) )
+            // InternalTurtle.g:220:4: (lv_value_2_0= RULE_INT )
+            {
+            // InternalTurtle.g:220:4: (lv_value_2_0= RULE_INT )
+            // InternalTurtle.g:221:5: lv_value_2_0= RULE_INT
+            {
+            lv_value_2_0=(Token)match(input,RULE_INT,FOLLOW_2); 
+
+            					newLeafNode(lv_value_2_0, grammarAccess.getRotateAccess().getValueINTTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -533,7 +611,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
             					setWithLastConsumed(
             						current,
             						"value",
-            						lv_value_1_0,
+            						lv_value_2_0,
             						"org.eclipse.xtext.common.Terminals.INT");
             				
 
@@ -565,7 +643,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRepeat"
-    // InternalTurtle.g:227:1: entryRuleRepeat returns [EObject current=null] : iv_ruleRepeat= ruleRepeat EOF ;
+    // InternalTurtle.g:241:1: entryRuleRepeat returns [EObject current=null] : iv_ruleRepeat= ruleRepeat EOF ;
     public final EObject entryRuleRepeat() throws RecognitionException {
         EObject current = null;
 
@@ -573,8 +651,8 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalTurtle.g:227:47: (iv_ruleRepeat= ruleRepeat EOF )
-            // InternalTurtle.g:228:2: iv_ruleRepeat= ruleRepeat EOF
+            // InternalTurtle.g:241:47: (iv_ruleRepeat= ruleRepeat EOF )
+            // InternalTurtle.g:242:2: iv_ruleRepeat= ruleRepeat EOF
             {
              newCompositeNode(grammarAccess.getRepeatRule()); 
             pushFollow(FOLLOW_1);
@@ -601,7 +679,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRepeat"
-    // InternalTurtle.g:234:1: ruleRepeat returns [EObject current=null] : (otherlv_0= 'repeat' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= '[' ( (lv_commands_3_0= ruleModel ) ) otherlv_4= ']' ) ;
+    // InternalTurtle.g:248:1: ruleRepeat returns [EObject current=null] : (otherlv_0= 'repeat' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= '[' ( (lv_commands_3_0= ruleModel ) ) otherlv_4= ']' ) ;
     public final EObject ruleRepeat() throws RecognitionException {
         EObject current = null;
 
@@ -616,21 +694,21 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalTurtle.g:240:2: ( (otherlv_0= 'repeat' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= '[' ( (lv_commands_3_0= ruleModel ) ) otherlv_4= ']' ) )
-            // InternalTurtle.g:241:2: (otherlv_0= 'repeat' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= '[' ( (lv_commands_3_0= ruleModel ) ) otherlv_4= ']' )
+            // InternalTurtle.g:254:2: ( (otherlv_0= 'repeat' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= '[' ( (lv_commands_3_0= ruleModel ) ) otherlv_4= ']' ) )
+            // InternalTurtle.g:255:2: (otherlv_0= 'repeat' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= '[' ( (lv_commands_3_0= ruleModel ) ) otherlv_4= ']' )
             {
-            // InternalTurtle.g:241:2: (otherlv_0= 'repeat' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= '[' ( (lv_commands_3_0= ruleModel ) ) otherlv_4= ']' )
-            // InternalTurtle.g:242:3: otherlv_0= 'repeat' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= '[' ( (lv_commands_3_0= ruleModel ) ) otherlv_4= ']'
+            // InternalTurtle.g:255:2: (otherlv_0= 'repeat' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= '[' ( (lv_commands_3_0= ruleModel ) ) otherlv_4= ']' )
+            // InternalTurtle.g:256:3: otherlv_0= 'repeat' ( (lv_value_1_0= RULE_INT ) ) otherlv_2= '[' ( (lv_commands_3_0= ruleModel ) ) otherlv_4= ']'
             {
-            otherlv_0=(Token)match(input,13,FOLLOW_4); 
+            otherlv_0=(Token)match(input,15,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getRepeatAccess().getRepeatKeyword_0());
             		
-            // InternalTurtle.g:246:3: ( (lv_value_1_0= RULE_INT ) )
-            // InternalTurtle.g:247:4: (lv_value_1_0= RULE_INT )
+            // InternalTurtle.g:260:3: ( (lv_value_1_0= RULE_INT ) )
+            // InternalTurtle.g:261:4: (lv_value_1_0= RULE_INT )
             {
-            // InternalTurtle.g:247:4: (lv_value_1_0= RULE_INT )
-            // InternalTurtle.g:248:5: lv_value_1_0= RULE_INT
+            // InternalTurtle.g:261:4: (lv_value_1_0= RULE_INT )
+            // InternalTurtle.g:262:5: lv_value_1_0= RULE_INT
             {
             lv_value_1_0=(Token)match(input,RULE_INT,FOLLOW_5); 
 
@@ -652,15 +730,15 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,14,FOLLOW_6); 
+            otherlv_2=(Token)match(input,16,FOLLOW_6); 
 
             			newLeafNode(otherlv_2, grammarAccess.getRepeatAccess().getLeftSquareBracketKeyword_2());
             		
-            // InternalTurtle.g:268:3: ( (lv_commands_3_0= ruleModel ) )
-            // InternalTurtle.g:269:4: (lv_commands_3_0= ruleModel )
+            // InternalTurtle.g:282:3: ( (lv_commands_3_0= ruleModel ) )
+            // InternalTurtle.g:283:4: (lv_commands_3_0= ruleModel )
             {
-            // InternalTurtle.g:269:4: (lv_commands_3_0= ruleModel )
-            // InternalTurtle.g:270:5: lv_commands_3_0= ruleModel
+            // InternalTurtle.g:283:4: (lv_commands_3_0= ruleModel )
+            // InternalTurtle.g:284:5: lv_commands_3_0= ruleModel
             {
 
             					newCompositeNode(grammarAccess.getRepeatAccess().getCommandsModelParserRuleCall_3_0());
@@ -687,7 +765,7 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,15,FOLLOW_2); 
+            otherlv_4=(Token)match(input,17,FOLLOW_2); 
 
             			newLeafNode(otherlv_4, grammarAccess.getRepeatAccess().getRightSquareBracketKeyword_4());
             		
@@ -719,10 +797,10 @@ public class InternalTurtleParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000003802L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x000000000000F802L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000003800L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000000F800L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000020000L});
 
 }

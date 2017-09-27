@@ -36,6 +36,8 @@ public class TurtleParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getCommandAccess().getAlternatives(), "rule__Command__Alternatives");
+					put(grammarAccess.getForwardAccess().getAlternatives_0(), "rule__Forward__Alternatives_0");
+					put(grammarAccess.getRotateAccess().getAlternatives_0(), "rule__Rotate__Alternatives_0");
 					put(grammarAccess.getForwardAccess().getGroup(), "rule__Forward__Group__0");
 					put(grammarAccess.getRotateAccess().getGroup(), "rule__Rotate__Group__0");
 					put(grammarAccess.getRepeatAccess().getGroup(), "rule__Repeat__Group__0");

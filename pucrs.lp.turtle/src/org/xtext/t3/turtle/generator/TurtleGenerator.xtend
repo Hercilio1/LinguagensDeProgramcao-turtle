@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.t3.turtle.turtle.Command
 
 /**
  * Generates code from your model files on save.
@@ -14,10 +15,24 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class TurtleGenerator extends AbstractGenerator {
-
+	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		for (e : resource.allContents.toIterable) {
-	        System.out.println(e);
-	    }
+
+	    fsa.generateFile('TurtleApp.java', resource.compile);
 	}
+	
+	def compile(Resource r) '''
+		public class TurtleApp {
+			Turtle t = new Turtle();
+			// Begin Generated commands
+	        «FOR c : r.allContents.toIterable().filter(Command)»
+	    		«c.compile»
+	    	«ENDFOR»
+			// End Generated commands
+		}
+    '''
+	
+	def compile(Command e) '''
+        t.forward(«e.value»);
+    '''
 }

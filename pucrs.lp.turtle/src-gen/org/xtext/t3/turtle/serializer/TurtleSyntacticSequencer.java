@@ -10,6 +10,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.t3.turtle.services.TurtleGrammarAccess;
@@ -18,10 +21,14 @@ import org.xtext.t3.turtle.services.TurtleGrammarAccess;
 public class TurtleSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected TurtleGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Forward_FdKeyword_0_0_or_ForwadKeyword_0_1;
+	protected AbstractElementAlias match_Rotate_RotateKeyword_0_1_or_RtKeyword_0_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (TurtleGrammarAccess) access;
+		match_Forward_FdKeyword_0_0_or_ForwadKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getForwardAccess().getFdKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getForwardAccess().getForwadKeyword_0_1()));
+		match_Rotate_RotateKeyword_0_1_or_RtKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getRotateAccess().getRotateKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getRotateAccess().getRtKeyword_0_0()));
 	}
 	
 	@Override
@@ -36,8 +43,34 @@ public class TurtleSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_Forward_FdKeyword_0_0_or_ForwadKeyword_0_1.equals(syntax))
+				emit_Forward_FdKeyword_0_0_or_ForwadKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Rotate_RotateKeyword_0_1_or_RtKeyword_0_0.equals(syntax))
+				emit_Rotate_RotateKeyword_0_1_or_RtKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     'fd' | 'forwad'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) value=INT
+	 */
+	protected void emit_Forward_FdKeyword_0_0_or_ForwadKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'rt' | 'rotate'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) value=INT
+	 */
+	protected void emit_Rotate_RotateKeyword_0_1_or_RtKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

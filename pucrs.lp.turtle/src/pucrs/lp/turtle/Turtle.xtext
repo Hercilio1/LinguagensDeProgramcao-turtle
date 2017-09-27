@@ -9,13 +9,13 @@ Command:
 	Forward | Rotate | Repeat;
 
 Forward:
-	'fd' value=INT;
+	('fd' | 'forwad') value=INT ;
 	
 Rotate:
-	'rt' value=INT;
+	('rt' | 'rotate') value=INT;
 
 Repeat:
-	'repeat' value=INT '[' commands+=Model ']';
+	('repeat') value=INT '[' commands+=Model ']';
 	
 //Function:
 //	'to' name=ID Repeat 'end';

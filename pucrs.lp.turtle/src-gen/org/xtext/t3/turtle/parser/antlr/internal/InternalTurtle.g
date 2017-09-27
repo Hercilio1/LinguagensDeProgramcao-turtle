@@ -157,15 +157,22 @@ ruleForward returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='fd'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getForwardAccess().getFdKeyword_0());
-		}
+		(
+			otherlv_0='fd'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getForwardAccess().getFdKeyword_0_0());
+			}
+			    |
+			otherlv_1='forwad'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getForwardAccess().getForwadKeyword_0_1());
+			}
+		)
 		(
 			(
-				lv_value_1_0=RULE_INT
+				lv_value_2_0=RULE_INT
 				{
-					newLeafNode(lv_value_1_0, grammarAccess.getForwardAccess().getValueINTTerminalRuleCall_1_0());
+					newLeafNode(lv_value_2_0, grammarAccess.getForwardAccess().getValueINTTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -174,7 +181,7 @@ ruleForward returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"value",
-						lv_value_1_0,
+						lv_value_2_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
@@ -198,15 +205,22 @@ ruleRotate returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='rt'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getRotateAccess().getRtKeyword_0());
-		}
+		(
+			otherlv_0='rt'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getRotateAccess().getRtKeyword_0_0());
+			}
+			    |
+			otherlv_1='rotate'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getRotateAccess().getRotateKeyword_0_1());
+			}
+		)
 		(
 			(
-				lv_value_1_0=RULE_INT
+				lv_value_2_0=RULE_INT
 				{
-					newLeafNode(lv_value_1_0, grammarAccess.getRotateAccess().getValueINTTerminalRuleCall_1_0());
+					newLeafNode(lv_value_2_0, grammarAccess.getRotateAccess().getValueINTTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -215,7 +229,7 @@ ruleRotate returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"value",
-						lv_value_1_0,
+						lv_value_2_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)

@@ -63,19 +63,27 @@ public class TurtleGrammarAccess extends AbstractGrammarElementFinder {
 	public class ForwardElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.t3.turtle.Turtle.Forward");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cFdKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cFdKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cForwadKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueINTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//Forward:
-		//	'fd' value=INT;
+		//	('fd' | 'forwad') value=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'fd' value=INT
+		//('fd' | 'forwad') value=INT
 		public Group getGroup() { return cGroup; }
 		
+		//('fd' | 'forwad')
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
 		//'fd'
-		public Keyword getFdKeyword_0() { return cFdKeyword_0; }
+		public Keyword getFdKeyword_0_0() { return cFdKeyword_0_0; }
+		
+		//'forwad'
+		public Keyword getForwadKeyword_0_1() { return cForwadKeyword_0_1; }
 		
 		//value=INT
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
@@ -86,19 +94,27 @@ public class TurtleGrammarAccess extends AbstractGrammarElementFinder {
 	public class RotateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.t3.turtle.Turtle.Rotate");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRtKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cRtKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cRotateKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueINTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//Rotate:
-		//	'rt' value=INT;
+		//	('rt' | 'rotate') value=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'rt' value=INT
+		//('rt' | 'rotate') value=INT
 		public Group getGroup() { return cGroup; }
 		
+		//('rt' | 'rotate')
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
 		//'rt'
-		public Keyword getRtKeyword_0() { return cRtKeyword_0; }
+		public Keyword getRtKeyword_0_0() { return cRtKeyword_0_0; }
+		
+		//'rotate'
+		public Keyword getRotateKeyword_0_1() { return cRotateKeyword_0_1; }
 		
 		//value=INT
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
@@ -217,7 +233,7 @@ public class TurtleGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Forward:
-	//	'fd' value=INT;
+	//	('fd' | 'forwad') value=INT;
 	public ForwardElements getForwardAccess() {
 		return pForward;
 	}
@@ -227,7 +243,7 @@ public class TurtleGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Rotate:
-	//	'rt' value=INT;
+	//	('rt' | 'rotate') value=INT;
 	public RotateElements getRotateAccess() {
 		return pRotate;
 	}
