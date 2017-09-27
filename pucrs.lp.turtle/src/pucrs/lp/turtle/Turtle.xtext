@@ -1,0 +1,21 @@
+grammar org.xtext.t3.turtle.Turtle with org.eclipse.xtext.common.Terminals
+
+generate turtle "http://www.xtext.org/t3/turtle/Turtle"
+
+Model:
+	commands+=Command*;
+	
+Command:
+	Forward | Rotate | Repeat;
+
+Forward:
+	'fd' value=INT;
+	
+Rotate:
+	'rt' value=INT;
+
+Repeat:
+	'repeat' value=INT '[' commands+=Model ']';
+	
+//Function:
+//	'to' name=ID Repeat 'end';
